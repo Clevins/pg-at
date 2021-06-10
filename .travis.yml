@@ -1,0 +1,21 @@
+sudo: required
+language: generic
+services:
+  - docker
+
+before_install:
+  - docker build -t clevins/pg-at-client -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true clevins/pg-at-client npm run test
+
+after_success:
+  - docker build -t clevins/pg-at-client ./client
+  - docker build -t clevins/pg-at-strapi ./strapi
+  - docker build -t clevins/pg-at-nginx ./nginx
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  - docker push clevins/pg-at-client
+  - docker push clevins/pg-at-strapi
+  - docker push clevins/pg-at-nginx

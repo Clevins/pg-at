@@ -28,6 +28,7 @@ services:
             NODE_ENV: production
     nginx:
         restart: always
+        image: clevins/pg-at-nginx
         build:
             dockerfile: Dockerfile.dev
             context: ./nginx
