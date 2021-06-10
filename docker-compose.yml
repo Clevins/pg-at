@@ -1,0 +1,38 @@
+version: '3'
+services: 
+    client:
+        build: 
+            dockerfile: Dockerfile.dev
+            context: ./client
+        image: clevins/pg-at-client
+        volumes: 
+            - /app/node_modules
+            - ./client:/app
+    strapi:
+        build: 
+            dockerfile: Dockerfile.dev
+            context: ./strapi
+        image: clevins/pg-at-strapi
+        volumes: 
+            - /app/node_modules
+            - ./strapi:/app
+        env_file: .env
+        environment: 
+            DATABASE_CLIENT: ${DATABASE_CLIENT}
+            DATABASE_NAME: ${DATABASE_NAME}
+            DATABASE_URI: ${DATABASE_URI}
+            DATABASE_PORT: ${DATABASE_PORT}
+            DATABASE_SRV: ${DATABASE_SRV}
+            DATABASE_USERNAME: ${DATABASE_USERNAME}
+            DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+            NODE_ENV: production
+    nginx:
+        restart: always
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./nginx
+        depends_on:
+            - client
+            - strapi
+        ports: 
+            - '3005:80'
