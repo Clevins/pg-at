@@ -15,13 +15,6 @@ module.exports = {
         'import/extensions': 'off',
         'implicit-arrow-linebreak': 'off',
         'import/prefer-default-export': 'off',
-        'vue/component-name-in-template-casing': [
-            'error',
-            'kebab-case',
-            {
-                ignores: [],
-            },
-        ],
         'prettier/prettier': ['error', { singleQuote: true, endOfLine: 'auto' }],
     },
 };
