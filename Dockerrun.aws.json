@@ -9,13 +9,6 @@
             "memory": 128
         },
         {
-            "name": "strapi",
-            "image": "clevins/pg-at-strapi",
-            "hostname": "strapi",
-            "essential": false,
-            "memory": 128
-        },
-        {
             "name": "nginx",
             "image": "clevins/pg-at-nginx",
             "essential": true,
@@ -27,8 +20,7 @@
                 }
             ],
             "links": [
-                "client",
-                "strapi"
+                "client"
             ]
         }
     ]
