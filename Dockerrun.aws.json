@@ -6,13 +6,13 @@
             "image": "clevins/pg-at-client",
             "hostname": "client",
             "essential": false,
-            "memory": 1024
+            "memory": 512
         },
         {
             "name": "nginx",
             "image": "clevins/pg-at-nginx",
             "essential": true,
-            "memory": 1024,
+            "memory": 128,
             "portMappings": [
                 {
                     "hostPort": 80,
