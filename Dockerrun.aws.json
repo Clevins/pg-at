@@ -27,7 +27,8 @@
                 }
             ],
             "links": [
-                "client"
+                "client",
+                "strapi"
             ]
         }
     ]

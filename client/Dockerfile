@@ -11,6 +11,8 @@ COPY . .
 
 RUN npm run build
 
+CMD ["npm", "run", "start"]
+
 #Runtime
 FROM nginx
 EXPOSE 3000
