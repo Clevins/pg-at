@@ -23,4 +23,5 @@ module.exports = {
     webpack5: false,
   },
   jsconfigPaths: true,
+  target: 'server',
 };
