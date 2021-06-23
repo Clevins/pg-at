@@ -10,6 +10,10 @@ export default function MyApp(props: AppProps) {
     <>
       <Head>
         <title>My page</title>
+        <link
+          href="http://fonts.cdnfonts.com/css/montserrat"
+          rel="stylesheet"
+        />
       </Head>
       <Component {...pageProps} />
     </>

@@ -20,8 +20,11 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2018",
+    "baseUrl": ".",
     "paths": {
-      "@/pages/*": ["./pages/*"]
+      "@pages/*": ["./pages/*"],
+      "@logos/*": ["assets/logos/*"],
+      "@icons/*": ["assets/icons/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
