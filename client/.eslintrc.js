@@ -1,20 +1,30 @@
 module.exports = {
-    root: true,
-    env: {
-        browser: true,
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: ['plugin:react/recommended', 'airbnb'],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: false,
     },
-    parserOptions: {
-        parser: 'babel-eslint',
-        sourceType: 'module',
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  plugins: ['react', '@typescript-eslint'],
+  rules: {
+    'import/no-unresolved': 'off',
+    'import/extensions': 'off',
+    'linebreak-style': 'off',
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
+    'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
+    'react/jsx-props-no-spreading': 'off',
+  },
+  settings: {
+    react: {
+      version: '17.0.2',
     },
-    extends: ['airbnb-base', 'plugin:vue/recommended', 'prettier/vue', 'plugin:prettier/recommended'],
-    rules: {
-        'comma-dangle': 'off',
-        'class-methods-use-this': 'off',
-        'import/no-unresolved': 'off',
-        'import/extensions': 'off',
-        'implicit-arrow-linebreak': 'off',
-        'import/prefer-default-export': 'off',
-        'prettier/prettier': ['error', { singleQuote: true, endOfLine: 'auto' }],
-    },
+  },
 };
