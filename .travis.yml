@@ -10,7 +10,7 @@ script:
   - docker run -e CI=true clevins/pg-at-client-dev npm run test
 
 after_success:
-  - docker build -t clevins/pg-at-client- ./client
+  - docker build -t clevins/pg-at-client ./client
   - docker build -t clevins/pg-at-strapi ./strapi
   - docker build -t clevins/pg-at-nginx ./nginx
 
