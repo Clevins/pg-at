@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "name": "Home"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "home_social_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "category1.social-links",
+      "max": 4,
+      "required": false
+    }
+  }
+}
