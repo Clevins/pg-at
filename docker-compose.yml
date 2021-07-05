@@ -31,8 +31,6 @@ services:
       AWS_ACCESS_SECRET: ${AWS_ACCESS_SECRET}
       AWS_REGION: ${AWS_REGION}
       AWS_BUCKET_NAME: ${AWS_BUCKET_NAME}
-
-      NODE_ENV: production
   nginx:
     restart: always
     image: clevins/pg-at-nginx

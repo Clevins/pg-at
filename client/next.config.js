@@ -8,6 +8,10 @@ module.exports = {
     };
     return config;
   },
+  env: {
+    STRAPI_BASE_URL:
+      'http://sub.pg-at-env.eba-5dnijfwy.eu-west-1.elasticbeanstalk.com',
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

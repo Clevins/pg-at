@@ -11,4 +11,11 @@ module.exports = ({ env }) => ({
       logger: console, // Only if you want to `stdout` logs
     },
   },
+  graphql: {
+    endpoint: "/graphql",
+    shadowCRUD: true,
+    playgroundAlways: true,
+    depthLimit: 7,
+    amountLimit: 100,
+  },
 });
