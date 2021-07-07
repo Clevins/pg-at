@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_category1_heroes",
+  "info": {
+    "name": "Hero",
+    "icon": "image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "desktopImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "mobileImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

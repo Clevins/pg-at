@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import Logo from '@logos/logo.svg';
-import FacebookIcon from '@icons/facebook.svg';
 import MenuIcon from '@icons/menu.svg';
 import { useRouter } from 'next/router';
+import Socials from '@components/Socials';
+import { SocialsProps } from '@customTypes/SocialsProps';
 
-// TODO
-// Add Socil Links as Strapi Resort with Max 4 assets
-// Add Scrolll to Anchors on blogs and videos, or link them to relevent pages.
-// Add tranparent sruff when hero image is in.
-// Make navbar absoulte for hero image
-
-export default function Navbar() {
+/* ToDo
+ * Fix animation on mobile screens.
+ * Fix Youtube Icon
+ */
+const Navbar: FunctionComponent<SocialsProps> = ({ socialLinks }) => {
   const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
   const router = useRouter();
 
@@ -45,16 +44,9 @@ export default function Navbar() {
   ];
 
   return (
-    // Transparenrt NAv into bavkground nav animation on movile
-    //   <div
-    // eslint-disable-next-line max-len
-    //   className={`flex flex-row justify-between overflow-hidden w-full transition-all duration-500 ease-out text-white lg:justify-between  bg-transparent ${
-    //     mobileNavOpen ? ' h-72 bg-cloudBurst' : ' h-14 '
-    //   }  `}
-    // >
     <div
-      className={`flex flex-row justify-between overflow-hidden w-full transition-all duration-500 ease-out text-white bg-cloudBurst  ${
-        mobileNavOpen ? ' h-72 ' : ' h-14 '
+      className={`lg:absolute z-10 flex flex-row justify-between overflow-hidden w-full transition-all duration-500 ease-out text-white lg:justify-between  bg-transparent ${
+        mobileNavOpen ? ' h-72 bg-cloudBurst relative ' : ' h-14 absolute'
       }  `}
     >
       <div className="flex flex-col justify-start lg:items-center lg:w-full lg:justify-between lg:flex-row">
@@ -64,6 +56,7 @@ export default function Navbar() {
             <Logo />
           </a>
         </div>
+        {console.log(socialLinks)}
 
         {/* Nav Items */}
         <div>
@@ -83,33 +76,13 @@ export default function Navbar() {
           </ul>
         </div>
 
-        {/* Social */}
+        {/* Socials */}
         <div className="pr-2 w-44">
-          <ul className="flex flex-row mt-2 lg:justify-end lg:mt-0 ">
-            <li className="w-6 h-6 m-2 transition duration-300 ease-in-out opacity-70 hover:opacity-100">
-              <a href="www.facebook.com" className="text-white">
-                <FacebookIcon />
-              </a>
-            </li>
-            <li className="w-6 h-6 m-2 transition duration-300 ease-in-out opacity-70 hover:opacity-100">
-              <a href="www.facebook.com" className="text-white">
-                <FacebookIcon />
-              </a>
-            </li>
-            <li className="w-6 h-6 m-2 duration-300 ease-in-out m-2transition opacity-70 hover:opacity-100">
-              <a href="www.facebook.com" className="text-white">
-                <FacebookIcon />
-              </a>
-            </li>
-            <li className="w-6 h-6 m-2 duration-300 ease-in-out m-2transition opacity-70 hover:opacity-100">
-              <a href="www.facebook.com" className="text-white">
-                <FacebookIcon />
-              </a>
-            </li>
-          </ul>
+          <Socials socialLinks={socialLinks} />
         </div>
       </div>
 
+      {/* Mobile Menu Btn */}
       <div>
         <button
           className={` outline-none focus:outline-none transition-all duration-500 ease-out cursor-auto  ${
@@ -123,4 +96,6 @@ export default function Navbar() {
       </div>
     </div>
   );
-}
+};
+
+export default Navbar;

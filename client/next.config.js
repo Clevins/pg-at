@@ -1,4 +1,7 @@
 module.exports = {
+  serverRuntimeConfig: {
+    apiBaseUrl: process.env.API_BASE_URL, // Pass through env variables
+  },
   webpackDevMiddleware: (config) => {
     // Solve compiling problem via vagrant
     // eslint-disable-next-line no-param-reassign
