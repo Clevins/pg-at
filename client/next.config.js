@@ -1,4 +1,7 @@
 module.exports = {
+  serverRuntimeConfig: {
+    apiBaseUrl: process.env.API_BASE_URL, // Pass through env variables
+  },
   webpackDevMiddleware: (config) => {
     // Solve compiling problem via vagrant
     // eslint-disable-next-line no-param-reassign
@@ -7,10 +10,6 @@ module.exports = {
       aggregateTimeout: 300, // delay before rebuilding
     };
     return config;
-  },
-  env: {
-    STRAPI_BASE_URL:
-      'http://sub.pg-at-env.eba-5dnijfwy.eu-west-1.elasticbeanstalk.com',
   },
   webpack(config) {
     config.module.rules.push({

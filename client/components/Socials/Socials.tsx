@@ -3,16 +3,16 @@ import type { SocialsProps, ISocialLink } from '@customTypes/SocialsProps';
 
 const Socials: FunctionComponent<SocialsProps> = ({ socialLinks }) => {
   return (
-    <ul className="flex flex-row mt-2 lg:justify-end lg:mt-0 ">
+    <ul className="flex flex-row content-center mt-2 lg:justify-end lg:mt-0">
       {socialLinks.map((socialLink: ISocialLink) => {
         const { id, url, name, icon } = socialLink;
         return (
           <li
             key={id}
-            className="w-6 h-6 m-2 transition duration-300 ease-in-out opacity-70 hover:opacity-100"
+            className="items-center w-6 h-auto m-2 transition duration-300 ease-in-out opacity-70 hover:opacity-100 "
           >
-            <a href={url} className="text-white">
-              <img src={icon.url} alt={name} />
+            <a href={url} className="self-center text-white ">
+              <img src={icon.url} alt={name} className="" />
             </a>
           </li>
         );

@@ -14,6 +14,9 @@ module.exports = {
       fontFamily: {
         Montserrat: 'Montserrat',
       },
+      textShadow: {
+        default: '2px 2px 2px rgba(0, 0, 0, 0.4)',
+      },
     },
   },
   variants: {

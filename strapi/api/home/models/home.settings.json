@@ -18,6 +18,11 @@
       "component": "category1.social-links",
       "max": 4,
       "required": false
+    },
+    "home_hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "category1.hero"
     }
   }
 }

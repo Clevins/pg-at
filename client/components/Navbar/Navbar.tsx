@@ -5,6 +5,10 @@ import { useRouter } from 'next/router';
 import Socials from '@components/Socials';
 import { SocialsProps } from '@customTypes/SocialsProps';
 
+/* ToDo
+ * Fix animation on mobile screens.
+ * Fix Youtube Icon
+ */
 const Navbar: FunctionComponent<SocialsProps> = ({ socialLinks }) => {
   const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
   const router = useRouter();
@@ -40,17 +44,9 @@ const Navbar: FunctionComponent<SocialsProps> = ({ socialLinks }) => {
   ];
 
   return (
-    // Transparenrt NAv into bavkground nav animation on movile
-    //   <div
-    // eslint-disable-next-line max-len
-    //   className={`flex flex-row justify-between overflow-hidden w-full transition-all duration-500 ease-out text-white lg:justify-between  bg-transparent ${
-    //     mobileNavOpen ? ' h-72 bg-cloudBurst' : ' h-14 '
-    //   }  `}
-    // >
-
     <div
-      className={`flex flex-row justify-between overflow-hidden w-full transition-all duration-500 ease-out text-white bg-cloudBurst  ${
-        mobileNavOpen ? ' h-72 ' : ' h-14 '
+      className={`lg:absolute z-10 flex flex-row justify-between overflow-hidden w-full transition-all duration-500 ease-out text-white lg:justify-between  bg-transparent ${
+        mobileNavOpen ? ' h-72 bg-cloudBurst relative ' : ' h-14 absolute'
       }  `}
     >
       <div className="flex flex-col justify-start lg:items-center lg:w-full lg:justify-between lg:flex-row">
