@@ -24,7 +24,7 @@ deploy:
   provider: elasticbeanstalk
   region: "eu-west-1"
   app: "pg-at"
-  env: "pg-at-env"
+  env: "pgat-env"
   bucket_name: "elasticbeanstalk-eu-west-1-800939509044"
   bucket_path: "pg-at"
   on:
