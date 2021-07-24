@@ -12,17 +12,34 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "home_social_links": {
+    "Home_SocialLinks": {
       "type": "component",
       "repeatable": true,
       "component": "category1.social-links",
       "max": 4,
       "required": false
     },
-    "home_hero": {
+    "Home_Hero": {
       "type": "component",
       "repeatable": false,
       "component": "category1.hero"
+    },
+    "Home_Services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "category1.service"
+    },
+    "Home_ServiceBgImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

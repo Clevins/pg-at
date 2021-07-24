@@ -1,6 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import type { SocialsProps, ISocialLink } from '@customTypes/SocialsProps';
 
+/* ToDo
+ * Fix Youtube Icon
+ */
+
 const Socials: FunctionComponent<SocialsProps> = ({ socialLinks }) => {
   return (
     <ul className="flex flex-row content-center mt-2 lg:justify-end lg:mt-0">

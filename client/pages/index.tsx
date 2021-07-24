@@ -2,14 +2,23 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import Navbar from '@components/Navbar';
 import Hero from '@components/Hero';
+import AboutMe from '@components/AboutMe';
+import Services from '@components/Services';
 
 export default function Index({ data }: any) {
   return (
     <>
-      <Navbar socialLinks={data.home_social_links} />
+      <Navbar socialLinks={data.Home_SocialLinks} />
       <Hero
-        deaktopHeroUrl={data.home_hero.desktopImage.url}
-        mobileHeroUrl={data.home_hero.mobileImage.url}
+        deaktopHeroUrl={data.Home_Hero.desktopImage.url}
+        mobileHeroUrl={data.Home_Hero.mobileImage.url}
+      />
+      {console.log(data)}
+
+      <AboutMe />
+      <Services
+        servicesBgImage={data.Home_ServiceBgImage}
+        homeServices={data.Home_Services}
       />
       <h2>Index</h2>
     </>
@@ -17,9 +26,7 @@ export default function Index({ data }: any) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(
-    `http://sub.pete-guay-athletic-therapy.eu-west-1.elasticbeanstalk.com/home`,
-  );
+  const res = await fetch(`http://172.18.0.1:3012/home`);
 
   const data = await res.json();
 

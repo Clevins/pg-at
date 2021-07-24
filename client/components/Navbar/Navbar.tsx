@@ -7,7 +7,7 @@ import { SocialsProps } from '@customTypes/SocialsProps';
 
 /* ToDo
  * Fix animation on mobile screens.
- * Fix Youtube Icon
+ * Fix Loading Link colors
  */
 const Navbar: FunctionComponent<SocialsProps> = ({ socialLinks }) => {
   const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
