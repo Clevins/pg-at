@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_category1_about_mes",
+  "info": {
+    "name": "About Me",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "descption": {
+      "type": "richtext"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

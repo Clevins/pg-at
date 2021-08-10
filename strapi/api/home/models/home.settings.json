@@ -40,6 +40,26 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "Home_AboutMe": {
+      "type": "component",
+      "repeatable": true,
+      "component": "category1.about-me"
+    },
+    "Home_ProfileImage": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "video_shelves": {
+      "collection": "video-shelves"
     }
   }
 }

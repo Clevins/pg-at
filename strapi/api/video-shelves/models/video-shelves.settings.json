@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "video_shelves",
+  "info": {
+    "name": "Video-Shelves"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "videos": {
+      "via": "video_shelves",
+      "collection": "videos",
+      "dominant": true
+    }
+  }
+}

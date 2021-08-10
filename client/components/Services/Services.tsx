@@ -3,7 +3,7 @@ import classes from './Services.module.css';
 import type { ServicesProps, IHomeService } from '@customTypes/ServiceProps';
 
 /* ToDo
- *
+ * Add in Mobile Image
  */
 
 const Services: FunctionComponent<ServicesProps> = ({

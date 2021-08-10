@@ -8,6 +8,7 @@ import { SocialsProps } from '@customTypes/SocialsProps';
 /* ToDo
  * Fix animation on mobile screens.
  * Fix Loading Link colors
+ * Abstract Props to type folder
  */
 const Navbar: FunctionComponent<SocialsProps> = ({ socialLinks }) => {
   const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
@@ -56,7 +57,6 @@ const Navbar: FunctionComponent<SocialsProps> = ({ socialLinks }) => {
             <Logo />
           </a>
         </div>
-        {console.log(socialLinks)}
 
         {/* Nav Items */}
         <div>
