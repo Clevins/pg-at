@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/video-shelves",
+      "handler": "video-shelves.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/video-shelves/count",
+      "handler": "video-shelves.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/video-shelves/:id",
+      "handler": "video-shelves.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/video-shelves",
+      "handler": "video-shelves.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/video-shelves/:id",
+      "handler": "video-shelves.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/video-shelves/:id",
+      "handler": "video-shelves.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
