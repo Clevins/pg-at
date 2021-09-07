@@ -60,6 +60,9 @@
     },
     "video_shelves": {
       "collection": "video-shelves"
+    },
+    "latest_blogs": {
+      "collection": "blogs"
     }
   }
 }

@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
-import ReactPlayer from 'react-player/lazy';
-import { VideoCardProps } from '@customTypes/VideoProps';
-import PlayIcon from '@icons/play.svg';
+import React, { FC } from 'react'
+import ReactPlayer from 'react-player/lazy'
+import { VideoCardProps } from '@customTypes/VideoProps'
+import PlayIcon from '@icons/play.svg'
 
 const VideoCard: FC<VideoCardProps> = ({ videoData }) => {
-  const { video, thumbnail, title, author, uploadDate } = videoData;
+  const { video, thumbnail, title, author, uploadDate } = videoData
 
   const PlayBtn = () => {
     return (
@@ -13,8 +13,8 @@ const VideoCard: FC<VideoCardProps> = ({ videoData }) => {
           <PlayIcon />
         </button>
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <div>
@@ -28,15 +28,16 @@ const VideoCard: FC<VideoCardProps> = ({ videoData }) => {
           playIcon={PlayBtn()}
           playing
         />
+        {console.log(videoData)}
       </div>
       <div className="flex flex-col font-Montserrat">
-        <h4 className="text-lg font-semibold">{title}</h4>
-        <h2 className="text-base italic font-medium text-irisBlue">
+        <h4 className="text-base font-semibold lg:text-lg">{title}</h4>
+        <h2 className="text-sm italic font-medium lg:text-base text-irisBlue">
           By {author} - {uploadDate}
         </h2>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default VideoCard;
+export default VideoCard

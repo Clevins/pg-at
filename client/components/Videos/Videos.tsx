@@ -3,7 +3,7 @@ import { VideosProps } from '@customTypes/VideoProps'
 import VideoShelf from '@components/Videos/VideoShelf'
 
 /* ToDo
- * Fix
+ * Fix View All Alignment
  */
 
 const Videos: FC<VideosProps> = ({ videoShelves }) => {
