@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import { AboutMeProps } from '@customTypes/AboutMeProps';
 
 /* ToDo
- *
+ * Fix text placement on lg screens
  */
 
 const AboutMe: FunctionComponent<AboutMeProps> = ({
