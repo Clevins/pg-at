@@ -1,35 +1,32 @@
 {
-    "AWSEBDockerrunVersion": 2,
-    "containerDefinitions": [
+  "AWSEBDockerrunVersion": 3,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "clevins/pg-at-client",
+      "hostname": "client",
+      "essential": false,
+      "memory": 412
+    },
+    {
+      "name": "strapi",
+      "image": "clevins/pg-at-strapi",
+      "hostname": "strapi",
+      "essential": false,
+      "memory": 412
+    },
+    {
+      "name": "nginx",
+      "image": "clevins/pg-at-nginx",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
         {
-            "name": "client",
-            "image": "clevins/pg-at-client",
-            "hostname": "client",
-            "essential": false,
-            "memory": 412
-        },
-        {
-            "name": "strapi",
-            "image": "clevins/pg-at-strapi",
-            "hostname": "strapi",
-            "essential": false,
-            "memory": 412
-        },
-        {
-            "name": "nginx",
-            "image": "clevins/pg-at-nginx",
-            "essential": true,
-            "memory": 128,
-            "portMappings": [
-                {
-                    "hostPort": 80,
-                    "containerPort": 80
-                }
-            ],
-            "links": [
-                "client",
-                "strapi"
-            ]
+          "hostPort": 80,
+          "containerPort": 80
         }
-    ]
+      ],
+      "links": ["client", "strapi"]
+    }
+  ]
 }
