@@ -14,6 +14,8 @@ services:
       - strapi
     ports:
       - 49153:49153
+    mem_limit: 412m
+
   strapi:
     build:
       dockerfile: Dockerfile
@@ -23,6 +25,7 @@ services:
       - /app/node_modules
       - ./strapi:/app
     env_file: .env
+    mem_limit: 412m
     environment:
       TZ: "Europe/Dublin"
       DATABASE_CLIENT: ${DATABASE_CLIENT}
@@ -42,6 +45,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./nginx
+    mem_limit: 128m
     depends_on:
       - client
       - strapi
