@@ -7,6 +7,11 @@ import Services from '@components/Services'
 import Videos from '@components/Videos'
 import Blogs from '@components/Blogs'
 
+const env = process.env.NODE_ENV
+const devApiUrl = 'http://172.18.0.1:3012'
+const prodApiUrl =
+  'http://sub.peteguay-athletic-therapy.eu-west-1.elasticbeanstalk.com'
+
 export default function Index({ data, videoShelves }: any) {
   return (
     <>
@@ -35,11 +40,13 @@ export default function Index({ data, videoShelves }: any) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await getHomeData()
+  const apiUrl = env === 'development' ? devApiUrl : prodApiUrl
+
+  const data = await getHomeData(apiUrl)
 
   const videoShelves = await Promise.all(
     data.video_shelves.map(async (video_shelf: any) => {
-      const videoData = await getVideos(video_shelf.videos)
+      const videoData = await getVideos(video_shelf.videos, apiUrl)
       video_shelf.videos = videoData
       return video_shelf
     }),
@@ -58,16 +65,18 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-async function getHomeData() {
-  const res = await fetch(`http://172.18.0.1:3012/home`)
+//     `http://sub.peteguay-athletic-therapy.eu-west-1.elasticbeanstalk.com/home`,
+
+async function getHomeData(apiUrl: string) {
+  const res = await fetch(`${apiUrl}/home`)
   const data = await res.json()
   return data
 }
 
-async function getVideos(videoIds: string[]) {
+async function getVideos(videoIds: string[], apiUrl: string) {
   const videos = await Promise.all(
     videoIds.map(async (videoId) => {
-      const res = await fetch(`http://172.18.0.1:3012/videos/${videoId}`)
+      const res = await fetch(`${apiUrl}/videos/${videoId}`)
       const json = await res.json()
       return json
     }),

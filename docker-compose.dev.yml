@@ -2,7 +2,7 @@ version: "3"
 services:
   client:
     build:
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
       context: ./client
     image: clevins/pg-at-client
     environment:
@@ -16,7 +16,7 @@ services:
       - 49153:49153
   strapi:
     build:
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
       context: ./strapi
     image: clevins/pg-at-strapi
     volumes:
@@ -40,12 +40,11 @@ services:
     restart: always
     image: clevins/pg-at-nginx
     build:
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
       context: ./nginx
     depends_on:
       - client
       - strapi
     ports:
-      - "80:80"
-    #   - "3011:80"
-    #   - "3012:85"
+      - "3011:80"
+      - "3012:85"
