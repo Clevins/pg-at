@@ -6,7 +6,7 @@ COPY ./package.json ./
 
 COPY . .
 
-RUN npm install
+RUN npm install --no-package-lock
 
 RUN npm run build
 

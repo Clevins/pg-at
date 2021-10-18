@@ -40,21 +40,30 @@ export default function Index({ data, videoShelves }: any) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const apiUrl = env === 'development' ? devApiUrl : prodApiUrl
+  let data,
+    videoShelves = {}
 
-  const data = await getHomeData(apiUrl)
+  try {
+    const apiUrl = env === 'development' ? devApiUrl : prodApiUrl
 
-  const videoShelves = await Promise.all(
-    data.video_shelves.map(async (video_shelf: any) => {
-      const videoData = await getVideos(video_shelf.videos, apiUrl)
-      video_shelf.videos = videoData
-      return video_shelf
-    }),
-  )
+    data = await getHomeData(apiUrl)
 
-  console.log(videoShelves)
+    videoShelves = await Promise.all(
+      data.video_shelves.map(async (video_shelf: any) => {
+        const videoData = await getVideos(video_shelf.videos, apiUrl)
+        video_shelf.videos = videoData
+        return video_shelf
+      }),
+    )
 
-  if (!data || !videoShelves) {
+    console.log(videoShelves)
+
+    if (!data || !videoShelves) {
+      return {
+        notFound: true,
+      }
+    }
+  } catch (e) {
     return {
       notFound: true,
     }
